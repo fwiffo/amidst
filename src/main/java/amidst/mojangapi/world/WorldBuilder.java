@@ -135,7 +135,8 @@ public class WorldBuilder {
 						new VillageLocationChecker(
 								seed,
 								biomeDataOracle,
-								versionFeatures.getValidBiomesForStructure_Village()),
+								versionFeatures.getValidBiomesForStructure_Village(),
+								versionFeatures.getDoComplexVillageCheck()),
 						new ImmutableWorldIconTypeProvider(DefaultWorldIconTypes.VILLAGE),
 						Dimension.OVERWORLD,
 						false),
@@ -238,7 +239,8 @@ public class WorldBuilder {
 								new ScatteredFeaturesLocationChecker(
 										seed,
 										biomeDataOracle,
-										(byte) 15, (byte) 8,
+										versionFeatures.getMaxDistanceScatteredFeatures_Shipwreck(),
+										(byte) 8,
 										versionFeatures.getValidBiomesAtMiddleOfChunk_Shipwreck(),
 										versionFeatures.getSeedForStructure_Shipwreck(),
 										buggyStructureCoordinateMath),

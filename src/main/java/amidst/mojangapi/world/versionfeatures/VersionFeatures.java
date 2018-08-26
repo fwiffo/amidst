@@ -17,6 +17,7 @@ public class VersionFeatures {
 	private final List<Biome> validBiomesAtMiddleOfChunk_Stronghold;
 	private final TriFunction<Long, BiomeDataOracle, List<Biome>, StrongholdProducer_Base> strongholdProducerFactory;
 	private final List<Biome> validBiomesForStructure_Village;
+	private final Boolean doComplexVillageCheck;
 	private final List<Biome> validBiomesAtMiddleOfChunk_DesertTemple;
 	private final List<Biome> validBiomesAtMiddleOfChunk_Igloo;
 	private final List<Biome> validBiomesAtMiddleOfChunk_JungleTemple;
@@ -34,6 +35,7 @@ public class VersionFeatures {
 	private final Long seedForStructure_WitchHut;
 	private final Long seedForStructure_OceanRuins;
 	private final Long seedForStructure_Shipwreck;
+	private final Byte maxDistanceScatteredFeatures_Shipwreck;
 	private final Boolean buggyStructureCoordinateMath;
 
 	public VersionFeatures(
@@ -42,6 +44,7 @@ public class VersionFeatures {
 			List<Biome> validBiomesAtMiddleOfChunk_Stronghold,
 			TriFunction<Long, BiomeDataOracle, List<Biome>, StrongholdProducer_Base> strongholdProducerFactory,
 			List<Biome> validBiomesForStructure_Village,
+			Boolean doComplexVillageCheck,
 			List<Biome> validBiomesAtMiddleOfChunk_DesertTemple,
 			List<Biome> validBiomesAtMiddleOfChunk_Igloo,
 			List<Biome> validBiomesAtMiddleOfChunk_JungleTemple,
@@ -59,12 +62,14 @@ public class VersionFeatures {
 			Long seedForStructure_WitchHut,
 			Long seedForStructure_OceanRuins,
 			Long seedForStructure_Shipwreck,
+			Byte maxDistanceScatteredFeatures_Shipwreck,
 			Boolean buggyStructureCoordinateMath) {
 		this.enabledLayers = enabledLayers;
 		this.validBiomesForStructure_Spawn = validBiomesForStructure_Spawn;
 		this.validBiomesAtMiddleOfChunk_Stronghold = validBiomesAtMiddleOfChunk_Stronghold;
 		this.strongholdProducerFactory = strongholdProducerFactory;
 		this.validBiomesForStructure_Village = validBiomesForStructure_Village;
+		this.doComplexVillageCheck = doComplexVillageCheck;
 		this.validBiomesAtMiddleOfChunk_DesertTemple = validBiomesAtMiddleOfChunk_DesertTemple;
 		this.validBiomesAtMiddleOfChunk_Igloo = validBiomesAtMiddleOfChunk_Igloo;
 		this.validBiomesAtMiddleOfChunk_JungleTemple = validBiomesAtMiddleOfChunk_JungleTemple;
@@ -82,6 +87,7 @@ public class VersionFeatures {
 		this.seedForStructure_WitchHut = seedForStructure_WitchHut;
 		this.seedForStructure_OceanRuins = seedForStructure_OceanRuins;
 		this.seedForStructure_Shipwreck = seedForStructure_Shipwreck;
+		this.maxDistanceScatteredFeatures_Shipwreck = maxDistanceScatteredFeatures_Shipwreck;
 		this.buggyStructureCoordinateMath = buggyStructureCoordinateMath;
 	}
 
@@ -103,6 +109,10 @@ public class VersionFeatures {
 
 	public List<Biome> getValidBiomesForStructure_Village() {
 		return validBiomesForStructure_Village;
+	}
+	
+	public Boolean getDoComplexVillageCheck() {
+		return doComplexVillageCheck;
 	}
 
 	public List<Biome> getValidBiomesAtMiddleOfChunk_DesertTemple() {
@@ -171,6 +181,10 @@ public class VersionFeatures {
 	
 	public Long getSeedForStructure_Shipwreck() {
 		return seedForStructure_Shipwreck;
+	}
+	
+	public Byte getMaxDistanceScatteredFeatures_Shipwreck() {
+		return maxDistanceScatteredFeatures_Shipwreck;
 	}
 
 	public Boolean getBuggyStructureCoordinateMath() {

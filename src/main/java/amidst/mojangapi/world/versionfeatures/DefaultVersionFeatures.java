@@ -31,6 +31,7 @@ public enum DefaultVersionFeatures {
 				INSTANCE.validBiomesAtMiddleOfChunk_Stronghold.getValue(version),
 				INSTANCE.strongholdProducerFactory.getValue(version),
 				INSTANCE.validBiomesForStructure_Village.getValue(version),
+				INSTANCE.doComplexVillageCheck.getValue(version),
 				INSTANCE.validBiomesAtMiddleOfChunk_DesertTemple.getValue(version),
 				INSTANCE.validBiomesAtMiddleOfChunk_Igloo.getValue(version),
 				INSTANCE.validBiomesAtMiddleOfChunk_JungleTemple.getValue(version),
@@ -48,6 +49,7 @@ public enum DefaultVersionFeatures {
 				INSTANCE.seedForStructure_WitchHut.getValue(version),
 				INSTANCE.seedForStructure_OceanRuins.getValue(version),
 				INSTANCE.seedForStructure_Shipwreck.getValue(version),
+				INSTANCE.maxDistanceScatteredFeatures_Shipwreck.getValue(version),
 				INSTANCE.buggyStructureCoordinateMath.getValue(version));
 	}
 
@@ -56,6 +58,7 @@ public enum DefaultVersionFeatures {
 	private final VersionFeature<List<Biome>> validBiomesAtMiddleOfChunk_Stronghold;
 	private final VersionFeature<TriFunction<Long, BiomeDataOracle, List<Biome>, StrongholdProducer_Base>> strongholdProducerFactory;
 	private final VersionFeature<List<Biome>> validBiomesForStructure_Village;
+	private final VersionFeature<Boolean> doComplexVillageCheck;
 	private final VersionFeature<List<Biome>> validBiomesAtMiddleOfChunk_DesertTemple;
 	private final VersionFeature<List<Biome>> validBiomesAtMiddleOfChunk_Igloo;
 	private final VersionFeature<List<Biome>> validBiomesAtMiddleOfChunk_JungleTemple;
@@ -73,6 +76,7 @@ public enum DefaultVersionFeatures {
 	private final VersionFeature<Long> seedForStructure_WitchHut;
 	private final VersionFeature<Long> seedForStructure_OceanRuins;
 	private final VersionFeature<Long> seedForStructure_Shipwreck;
+	private final VersionFeature<Byte> maxDistanceScatteredFeatures_Shipwreck;
 	private final VersionFeature<Boolean> buggyStructureCoordinateMath;
 
 	private DefaultVersionFeatures() {
@@ -153,8 +157,13 @@ public enum DefaultVersionFeatures {
 						Biome.savanna
 				).sinceExtend(RecognisedVersion._16w20a,
 						Biome.taiga
-				)
-				.construct();
+				).construct();
+		this.doComplexVillageCheck = VersionFeature.<Boolean> builder()
+				.init(
+						true
+				).since(RecognisedVersion._16w20a,
+						false
+				).construct();
 		this.validBiomesAtMiddleOfChunk_DesertTemple = VersionFeature.<Biome> listBuilder()
 				.init(
 						Biome.desert,
@@ -320,6 +329,12 @@ public enum DefaultVersionFeatures {
 		this.seedForStructure_Shipwreck = VersionFeature.<Long> builder()
 				.init(
 						165745295L
+				).construct();
+		this.maxDistanceScatteredFeatures_Shipwreck = VersionFeature.<Byte> builder()
+				.init(
+					(byte) 15
+				).since(RecognisedVersion._1_13_pre7,
+					(byte) 16
 				).construct();
 				
 		this.buggyStructureCoordinateMath = VersionFeature.<Boolean> builder()

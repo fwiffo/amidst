@@ -8,7 +8,7 @@ import java.util.Objects;
 
 import amidst.documentation.Immutable;
 import amidst.documentation.NotNull;
-import amidst.logging.AmidstLogger;import amidst.mojangapi.world.versionfeatures.VersionFeatures;
+import amidst.logging.AmidstLogger;
 
 /**
  * Information about what each supported version is
@@ -23,7 +23,9 @@ public enum RecognisedVersion {
 	// TODO: Remove these versions before V1_0?
 	// TODO: stronghold reset on V1_9pre4?
 	UNKNOWN,
-	_18w31a    ("18w31a",     "aduxsuconvq[Jvmuyuwbvavkxcpspwccqpppq"),                                                   // matches the launcher version id: 18w31a
+	_1_13_1    ("1.13.1",     "aduxrubomvp[Jvluxuvbvavkxbprpvccspopp"),                                                   // matches the launcher version id: 1.13.1
+	_18w33a    ("18w33a",     "adtxquaolvo[Jvkuwuubvavjxapqpuccrpnpo"),                                                   // matches the launcher version id: 18w33a
+	_18w32a    ("18w32a",     "adsxquaolvo[Jvkuwuubvavixapqpuccqpnpo"),                                                   // matches the launcher version id: 18w32a
 	_18w30b    ("18w30b",     "adtxruaom[Ltc;vo[J[[Jvkuwuubvavjxaprpvcclpopp"),                                           // matches the launcher version id: 18w30b
 	_18w30a    ("18w30a",     "adsxquaom[Ltc;vo[J[[Jvkuwuubvavixaprpvcckpopp"),                                           // matches the launcher version id: 18w30a
 	_1_13      ("1.13",       "adrxquaom[Ltc;vo[J[[Jvkuwuubvavhxaprpvccipopp"),                                           // matches the launcher version id: 1.13
